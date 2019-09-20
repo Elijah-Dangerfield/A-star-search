@@ -36,6 +36,9 @@ def main():
     board = [[int(n) for n in line.split()] for line in sys.stdin]
     start_node = Search.Node(board)
 
+    # so you have a starting node, now generate all children
+
+def successor():
 
 if __name__ == '__main__':
     main()
