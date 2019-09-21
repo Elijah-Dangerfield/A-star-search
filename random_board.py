@@ -16,32 +16,26 @@ def main():
     for i in range(number_of_moves):
         move = random.randrange(4)
         state = move_board(state, move)
-        print(state)
+
+    print(state)
 
 
 def move_board(state, move):
     original = state
 
     if move == 0:
-        print("UP")
         state = state.up()
         return state if state is not None else original
 
     elif move == 1:
-        print("DOWN")
-
         state = state.down()
         return state if state is not None else original
 
     elif move == 2:
-        print("LEFT")
-
         state = state.left()
         return state if state is not None else original
 
     else:
-        print("RIGHT")
-
         state = state.right()
         return state if state is not None else original
 

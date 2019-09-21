@@ -1,44 +1,96 @@
 import sys
-import random
-import Search
-import heapq
+from Search import PriorityQueue, Node, Set, State
 
-# we will need some static variable to increment for previous assigned id a
-# frontier ties will be broken by higher ID
-# we would need to travel back to parent via pointers and add to a stack to pop off for printing result
-
-
-
-# create a function to create a starting state given the input
-# that function will need to populate some class with the info, might be reused
-
-# create function given node to compute f(n) using the heuristic passed in
-
-# create an expand function that checks goal, adds to closed list, and generates children (can use random_board move) and returns
-#boolean for goal check
-
-#create serch function that while (goal not exapnded) expands the current node and sets the boolean for the while
-
-
-# TODO: using pointers and tracking paths and using closed and open list and poping back to answer needs to be done
-
-if len(sys.argv) != 2:
-    print()
-    print("Usage: %s [heuristic]" % (sys.argv[0]))
-    print()
-    sys.exit(1)
+#if len(sys.argv) != 2:
+   #print()
+   # print()
+   # sys.exit(1)
 
 
 def main():
-    frontier = Search.PriorityQueue
-    closed = Search.Set()
+    goal_state = State([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+    frontier = PriorityQueue()
+    closed = Set()
+
+    frontier.push(get_start_node())
+
+    search(goal_state, frontier, closed)
+
+
+def search(goal_state, frontier, closed):
+    goal_is_found = False
+    while not frontier.is_empty():
+
+        current_node = frontier.pop()
+        print("_______________CURRENT NODE ___________________\n",current_node.state)
+
+        # add to closed list
+        closed.add(current_node.state)
+
+        # generate children
+        frontier = successors(current_node, frontier, closed)
+
+
+
+        #check if goal
+        print(current_node.id)
+        goal_is_found = current_node.state.__hash__() == goal_state.__hash__()
+        if goal_is_found:
+            print_path(current_node)
+            break
+    if not goal_is_found:
+        print("Didnt find goal")
+
+
+
+
+def print_path(current_node):
+    print("Goal found with path:")
+
+    stack = []
+    while(current_node.parent != None):
+        stack.append(current_node.state)
+        current_node = current_node.parent
+
+    stack.append(current_node.state)
+
+    while len(stack) != 0:
+        print(stack.pop(), '\n')
+
+
+
+
+
+
+def get_start_node():
+    #board = [[1, 4, 2], [3, 0, 5], [6, 7, 8]]
 
     board = [[int(n) for n in line.split()] for line in sys.stdin]
-    start_node = Search.Node(board)
+    start_node = Node(State(board), None)
+    start_node.state.set_x_y(board)
+    return start_node
 
-    # so you have a starting node, now generate all children
 
-def successor():
+def successors(parent, frontier, closed):
+
+    up = parent.state.up()
+    if up is not None and not closed.is_member(up):
+        frontier.push(Node(up, parent))
+
+    down = parent.state.down()
+    if down is not None and not closed.is_member(down):
+        frontier.push(Node(down, parent))
+
+    left = parent.state.left()
+    if left is not None and not closed.is_member(left):
+        frontier.push(Node(left, parent))
+
+    right = parent.state.right()
+    if right is not None and not closed.is_member(right):
+        frontier.push(Node(right, parent))
+
+    return frontier
+
 
 if __name__ == '__main__':
     main()
