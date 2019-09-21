@@ -80,7 +80,6 @@ class State():
         s = copy.deepcopy(self)
         return s
 
-
 class PriorityQueue:
     def __init__(self):
         self.thisQueue = []
@@ -102,16 +101,18 @@ node_id = 0
 
 
 class Node:
-    def __init__(self, state, parent):
+    def __init__(self, state, parent, heuristic):
         global node_id
         self.id = node_id
         node_id += 1
         self.parent = parent
-        # TODO: use heuristic
-        self.cost = parent.cost + 1 if parent is not None else 0
         self.depth = parent.depth + 1 if parent is not None else 0
+        self.cost = self.get_cost(heuristic)
         self.state = state
 
+    def get_cost(self, heuristic):
+        if heuristic == 0:
+            return self.depth
 
 
     def __str__(self):
