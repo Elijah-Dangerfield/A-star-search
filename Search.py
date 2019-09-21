@@ -1,6 +1,7 @@
 import copy
 import heapq
 
+
 class Set:
     def __init__(self):
         self.thisSet = set()
@@ -173,4 +174,9 @@ class Node:
         return result
 
     def get_my_super_cool_cost(self):
-        return 0
+        # returns 3 minus the amount of finished rows
+        finished_rows = 0
+        for row in self.state.tiles:
+            if row == [0,1,2] or row == [3,4,5] or row == [6,7,8]:
+                finished_rows +=1
+        return 3 - finished_rows
