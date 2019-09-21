@@ -3,14 +3,14 @@ from Search import PriorityQueue, Node, Set, State
 
 if len(sys.argv) != 2:
     print(
-        "Please enter a heuristic: 0 - No Heuristic, 1 - Tile Displacement, 2 - Manhattan Distances, 3 - My super terrible heuristic")
+        "Please enter a heuristic: 0 - No Heuristic, 1 - Tile Displacement, 2 - Manhattan Distances, 3 - My super "
+        "terrible heuristic")
     sys.exit(0)
 
 goal_state = State([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
 
 
 def main():
-
     heuristic = int(sys.argv[1])
     frontier = PriorityQueue()
     closed = Set()
@@ -19,9 +19,9 @@ def main():
 
 
 def get_start_node(heuristic):
-    board = [[1, 4, 2], [3, 7, 5], [6, 0, 8]]
+    # board = [[1, 0, 2], [3, 4, 5], [6, 7, 8]]
 
-    # board = [[int(n) for n in line.split()] for line in sys.stdin]
+    board = [[int(n) for n in line.split()] for line in sys.stdin]
     start_node = Node(State(board), None, heuristic)
     start_node.state.set_x_y(board)
     return start_node
@@ -32,7 +32,6 @@ def search(frontier, closed, heuristic):
     while not frontier.is_empty():
 
         current_node = frontier.pop()
-        print("_______________CURRENT NODE ___________________\n", current_node)
 
         # add to closed list
         closed.add(current_node.state)
@@ -43,7 +42,7 @@ def search(frontier, closed, heuristic):
         # goal check
         goal_is_found = current_node.state.__hash__() == goal_state.__hash__()
         if goal_is_found:
-            print_path(current_node)
+            print_stats(current_node, frontier, closed)
             break
 
     if not goal_is_found:
@@ -70,12 +69,16 @@ def successors(parent, frontier, closed, heuristic):
     return frontier
 
 
-def print_path(current_node):
-    print("Goal found at depth: ", current_node.depth)
-    print("Goal found with path:")
+def print_stats(current_node, frontier, closed):
+    print("Total nodes visited: ", closed.length())
+    print("Total nodes in memory: ", closed.length() + frontier.length())
+    print("Depth of solution: ", current_node.depth)
+    print("Branching factor: ", pow(closed.length() + frontier.length(), (1 / current_node.depth)))
+
+    print("___________Path____________\n")
 
     stack = []
-    while current_node.parent != None:
+    while current_node.parent is not None:
         stack.append(current_node.state)
         current_node = current_node.parent
 

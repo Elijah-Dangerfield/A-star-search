@@ -1,7 +1,6 @@
 import copy
 import heapq
 
-
 class Set:
     def __init__(self):
         self.thisSet = set()
@@ -18,7 +17,6 @@ class Set:
 
 
 class State():
-    # TODO: this might only work with the starting board rather than just any board maybe pass in x,y or find it?
     def __init__(self, tiles):
         self.xpos = 0
         self.ypos = 0
@@ -80,6 +78,7 @@ class State():
         s = copy.deepcopy(self)
         return s
 
+
 class PriorityQueue:
     def __init__(self):
         self.thisQueue = []
@@ -98,6 +97,7 @@ class PriorityQueue:
 
 
 node_id = 0
+goal_board = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
 
 
 class Node:
@@ -107,15 +107,15 @@ class Node:
         node_id += 1
         self.parent = parent
         self.depth = parent.depth + 1 if parent is not None else 0
-        self.cost = self.get_cost(heuristic)
         self.state = state
+        self.cost = self.get_cost(heuristic)
 
     def get_cost(self, heuristic):
         if heuristic == 0:
             return self.depth
 
         if heuristic == 1:
-            return self.depth + self.get_displacment_cost()
+            return self.depth + self.get_displacement_cost()
 
         if heuristic == 2:
             return self.depth + self.get_manhattan_cost()
@@ -123,17 +123,54 @@ class Node:
         if heuristic == 3:
             return self.depth + self.get_my_super_cool_cost()
 
-
     def __str__(self):
         return 'Node: id=%d Depth=%d \nstate:  \n' % (self.id, self.depth) + self.state.__str__()
 
     def get_manhattan_cost(self):
-        return 0
+        # returns sum of every tiles distance to its goal position
+        total = 0
 
-    def get_displacment_cost(self):
-        return 0
+        for row in range(len(self.state.tiles)):
+            for col in range(len(self.state.tiles[0])):
+                current = self.state.tiles[row][col]
+                if current == 0:
+                    total += (abs(row - 0) + abs(col - 0))
+
+                elif current == 1:
+                    total += (abs(row - 0) + abs(col - 1))
+
+                elif current == 2:
+                    total += (abs(row - 0) + abs(col - 2))
+
+                elif current == 3:
+                    total += (abs(row - 1) + abs(col - 0))
+
+                elif current == 4:
+                    total += (abs(row - 1) + abs(col - 1))
+
+                elif current == 5:
+                    total += (abs(row - 1) + abs(col - 2))
+
+                elif current == 6:
+                    total += (abs(row - 2) + abs(col - 0))
+
+                elif current == 7:
+                    total += (abs(row - 2) + abs(col - 1))
+
+                elif current == 8:
+                    total += (abs(row - 2) + abs(col - 2))
+
+        return total
+
+    def get_displacement_cost(self):
+        # returns the num of misplaced tiles
+        result = 0
+        for row in range(len(self.state.tiles)):
+            for col in range(len(self.state.tiles[0])):
+                if self.state.tiles[row][col] != goal_board[row][col] and self.state.tiles[row][col] != 0:
+                    result += 1
+
+        return result
 
     def get_my_super_cool_cost(self):
         return 0
-
-
