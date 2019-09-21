@@ -114,7 +114,26 @@ class Node:
         if heuristic == 0:
             return self.depth
 
+        if heuristic == 1:
+            return self.depth + self.get_displacment_cost()
+
+        if heuristic == 2:
+            return self.depth + self.get_manhattan_cost()
+
+        if heuristic == 3:
+            return self.depth + self.get_my_super_cool_cost()
+
 
     def __str__(self):
         return 'Node: id=%d Depth=%d \nstate:  \n' % (self.id, self.depth) + self.state.__str__()
+
+    def get_manhattan_cost(self):
+        return 0
+
+    def get_displacment_cost(self):
+        return 0
+
+    def get_my_super_cool_cost(self):
+        return 0
+
 
