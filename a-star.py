@@ -70,10 +70,10 @@ def successors(parent, frontier, closed, heuristic):
 
 
 def print_stats(current_node, frontier, closed):
-    print("V=", closed.length())
-    print("N=", closed.length() + frontier.length())
-    print("d=", current_node.depth)
-    print("b=", pow(closed.length() + frontier.length(), (1 / current_node.depth)), '\n')
+    print("V=", closed.length(), sep='')
+    print("N=", closed.length() + frontier.length(), sep='')
+    print("d=", current_node.depth, sep='')
+    print("b=", "%.5f" % pow(closed.length() + frontier.length(), (1 / current_node.depth)), '\n', sep='')
 
     stack = []
     while current_node.parent is not None:

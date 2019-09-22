@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for i in {0..3}
+do
+  for j in {0..99}
+  do
+  cat board_input.txt | python random_board.py $j 100 | python3 a-star.py $i | grep -Ei 'V|N|d|b' >> heuristic_$i.txt
+  done
+
+done
