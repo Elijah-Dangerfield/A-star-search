@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 import sys, random
 import Search
 if len(sys.argv) != 3:
