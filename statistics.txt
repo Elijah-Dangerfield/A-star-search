@@ -1,0 +1,147 @@
+COMBINED STATISTICS :)
+____ Statistics for V ____
+MIN.:  4.0
+MEDIAN:  572.0
+MEAN:  8796.5025
+MAX:  167774.0
+STD. DEV.:  20901.625237167413
+____ Statistics for N ____
+MIN.:  10.0
+MEDIAN:  951.0
+MEAN:  14505.6725
+MAX:  217204.0
+STD. DEV.:  33191.82037829868
+____ Statistics for d ____
+MIN.:  3.0
+MEDIAN:  15.0
+MEAN:  14.665
+MAX:  26.0
+STD. DEV.:  5.362627620859014
+____ Statistics for b ____
+MIN.:  1.30642
+MEDIAN:  1.6555499999999999
+MEAN:  1.66365085
+MAX:  3.14138
+STD. DEV.:  0.23367833137836613
+
+
+
+
+
+
+____Statistics for heuristic:  0 (UNIFORM COST SEARCH)____
+
+____ Statistics for V ____
+MIN.:  17.0
+MEDIAN:  7496.5
+MEAN:  22864.01
+MAX:  167774.0
+STD. DEV.:  33158.278979915405
+____ Statistics for N ____
+MIN.:  31.0
+MEDIAN:  12627.5
+MEAN:  37318.66
+MAX:  217204.0
+STD. DEV.:  51627.485893120924
+____ Statistics for d ____
+MIN.:  3.0
+MEDIAN:  15.0
+MEAN:  14.66
+MAX:  26.0
+STD. DEV.:  5.361380419257712
+____ Statistics for b ____
+MIN.:  1.60422
+MEDIAN:  1.8643800000000001
+MEAN:  1.9205702000000002
+MAX:  3.14138
+STD. DEV.:  0.22705880828093855
+
+
+
+
+____Statistics for heuristic:  1  (DISPLACED TILES)____
+
+____ Statistics for V ____
+MIN.:  4.0
+MEDIAN:  319.0
+MEAN:  1679.86
+MAX:  30979.0
+STD. DEV.:  3857.9428171500936
+____ Statistics for N ____
+MIN.:  10.0
+MEDIAN:  538.5
+MEAN:  2765.86
+MAX:  49097.0
+STD. DEV.:  6211.743420361147
+____ Statistics for d ____
+MIN.:  3.0
+MEDIAN:  15.0
+MEAN:  14.66
+MAX:  26.0
+STD. DEV.:  5.361380419257712
+____ Statistics for b ____
+MIN.:  1.44492
+MEDIAN:  1.5158049999999998
+MEAN:  1.5333792
+MAX:  2.15443
+STD. DEV.:  0.08333974310831536
+
+
+
+
+____Statistics for heuristic:  2 (MANHATTAN DISTANCE)____
+
+____ Statistics for V ____
+MIN.:  4.0
+MEDIAN:  107.0
+MEAN:  290.76
+MAX:  1772.0
+STD. DEV.:  420.9957272942328
+____ Statistics for N ____
+MIN.:  10.0
+MEDIAN:  181.0
+MEAN:  481.09
+MAX:  2915.0
+STD. DEV.:  685.3715940276486
+____ Statistics for d ____
+MIN.:  3.0
+MEDIAN:  15.0
+MEAN:  14.68
+MAX:  26.0
+STD. DEV.:  5.366339534543076
+____ Statistics for b ____
+MIN.:  1.30642
+MEDIAN:  1.422445
+MEAN:  1.4555149
+MAX:  2.15443
+STD. DEV.:  0.12713513403064475
+
+
+
+
+____Statistics for heuristic:  3 (MY DOPE HEURISTIC)____
+
+____ Statistics for V ____
+MIN.:  5.0
+MEDIAN:  2789.0
+MEAN:  10351.38
+MAX:  107088.0
+STD. DEV.:  17597.5185147111
+____ Statistics for N ____
+MIN.:  12.0
+MEDIAN:  4730.0
+MEAN:  17457.08
+MAX:  165661.0
+STD. DEV.:  28959.966387646244
+____ Statistics for d ____
+MIN.:  3.0
+MEDIAN:  15.0
+MEAN:  14.66
+MAX:  26.0
+STD. DEV.:  5.361380419257712
+____ Statistics for b ____
+MIN.:  1.58759
+MEDIAN:  1.72349
+MEAN:  1.7451390999999998
+MAX:  2.28943
+STD. DEV.:  0.10401215770375113

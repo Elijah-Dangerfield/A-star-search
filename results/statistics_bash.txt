@@ -1,4 +1,4 @@
 for i in {0..3}
 do
-cat heuristic_$i.txt | grep "b=" | cut -f2 -d'=' >> b.txt
+cat results/heuristic_$i.txt | grep "b=" | cut -f2 -d'=' >> b_h$i.txt
 done
