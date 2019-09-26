@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from Search import PriorityQueue, Node, Set, State
+from search.Search import PriorityQueue, Node, Set, State
 
 if len(sys.argv) != 2:
     print(

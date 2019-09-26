@@ -10,10 +10,10 @@ import numpy
 
 def main():
 
-    V = numpy.loadtxt("V.txt")
-    N = numpy.loadtxt("N.txt")
-    d = numpy.loadtxt("d.txt")
-    b = numpy.loadtxt("b.txt")
+    V = numpy.loadtxt("results/V.txt")
+    N = numpy.loadtxt("results/N.txt")
+    d = numpy.loadtxt("results/d.txt")
+    b = numpy.loadtxt("results/b.txt")
 
     all = [V, N, d, b]
 
@@ -32,13 +32,6 @@ def main():
         print("MEAN: ", numpy.mean(all[i]))
         print("MAX: ", numpy.max(all[i]))
         print("STD. DEV.: ", numpy.std(all[i]))
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':

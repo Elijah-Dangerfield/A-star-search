@@ -2,7 +2,8 @@
 
 
 import sys, random
-import Search
+from search import Search
+
 if len(sys.argv) != 3:
     print()
     print("Usage: %s [seed] [number of random moves]" % (sys.argv[0]))
