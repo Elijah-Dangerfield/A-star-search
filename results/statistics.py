@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import sys
 import numpy
 
 # Minimum
@@ -35,13 +34,6 @@ def main():
             print("MEAN: ", numpy.mean(all[i]))
             print("MAX: ", numpy.max(all[i]))
             print("STD. DEV.: ", numpy.std(all[i]))
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
