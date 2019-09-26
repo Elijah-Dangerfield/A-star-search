@@ -1,7 +1,7 @@
 # OLA1
 This is an open lab assignment for CSCI 4350, an introduction to artificail intelligence. 
 
-The goal of this code is to test differning heuristics in an a-star search of finding the goal state for the famous 8 puzzle problem. 
+The goal of this code is to test differing heuristic choices in an a-star search of finding the goal state for the famous 8 puzzle problem. 
 
 ![](http://www.aiai.ed.ac.uk/~gwickler/images/8-puzzle-states.png)
 
